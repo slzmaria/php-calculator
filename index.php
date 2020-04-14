@@ -10,33 +10,33 @@
         $operation = $_GET['o'];
         $a = $_GET['a'];
         $b = $_GET['b'];
-
-        if ($operation != 'sum' && $operation != 'sub' && $operation != 'div' && $operation != 'mul') {
-            echo 'Unexpected operation';
-            exit;
-        }
+        $result = null;
 
         if (!is_numeric($a) || !is_numeric($b)) {
            echo 'Invalid arguments';
            exit;
         }
 
-        if ($operation == 'sum') {
+        if ($operation === 'sum') {
             $result = $a + $b;
         }
 
-        if ($operation == 'sub') {
+        if ($operation === 'sub') {
             $result = $a - $b;
         }
 
-        if ($operation == 'div') {
+        if ($operation === 'div') {
             $result = $a / $b;
         }
 
-        if ($operation == 'mul') {
+        if ($operation === 'mul') {
             $result = $a * $b;
         }
 
+        if ($result === null) {
+            echo 'Unexpected operation';
+            exit;
+        }
        
         echo $operation, ' is ', $result;
     ?>
