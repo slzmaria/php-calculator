@@ -1,44 +1,30 @@
 <?php       
-    function sum(int $x, int $y) {
-        return $x + $y;
-    }
 
-    function sub(int $x, int $y) {
-        return $x - $y;
-    }
-
-    function div(int $x, int $y) {
-        return $x / $y;
-    }
-
-    function mul(int $x, int $y) {
-        return $x * $y;
-    }
-    
     $a = (int) $_POST['a'];
     $b = (int) $_POST['b'];
     $operation = isset($_POST['operation']) ? $_POST['operation'] : 'undefined';
-
+   
     if ($operation === 'Sum') {
-        $result = sum($a, $b);
+        $result = $c->sum();
     }
 
     if ($operation === 'Sub') {
-        $result = sub($a, $b);
+        $result = $c->sub();
     }
 
     if ($operation === 'Div') {
-        $result = div($a, $b);
+        $result = $c->div();
     }
 
     if ($operation === 'Mul') {
-        $result = mul($a, $b);
+        $result = $c->mul();
     }
 
     if ($result === null) {
         echo 'Unexpected operation';
         exit;
     }
+  
    
     echo '<h5 class="result">Result is ', $result, '</h5>';
 
